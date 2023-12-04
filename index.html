@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The DM Calculator Repository is a repository of calculators built for DeltaMath.">
+    <link rel="stylesheet" href="style.css">
+    <title>The Calculator Repository</title>
+</head>
+<body>
+    <div class="card">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+            <h1 class="display-2 text-primary"><span class="ion ion-ios-tablet-portrait-outline"></span></h1>
+            <h4 class="card-title text-primary">Welcome to The Calculator Repository</h4>
+            <p class="card-text">This is my collection of .JSON files to be used with my respective calculator for you to deploy.</p>
+        </div>
+    </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Links for each .JSON:</h3>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary align-bottom btn-lg mr-1" onclick="copyCode('Test')">Test JS</button>
+            </div>
+        </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>How to use it</h3>
+            </div>
+            <div class="modal-body">
+                <ol>
+                    <li>Click the button that corresponds to the assignment name/problem type</li>
+                    <li>In the website's console, paste the code that was copied to your clipboard when you pressed the button and enter</li>
+                    <li>In the output, you will see something like <span class="d-inline-block rounded border align-middle pb-1 px-1 small"><small>(Number) [Array(2), Array(2), ...]</small></span> or something similar. Right click that output, and select <span class="d-inline-block rounded border align-middle pb-1 px-1 small"><small>Store object as global variable</small></span></li>
+                    <li>Now press <button class="d-inline-block rounded border align-middle pb-1 px-1 small" onclick="copyToClipboard('const answer_key = temp1')"><small>this button</small></button>, then paste that into the console and enter</li>
+                    <li>Finally, do the same steps with <button class="d-inline-block rounded border align-middle pb-1 px-1 small" onclick="copyAnswerGenerator()"><small>this button</small></button></li>
+                    <li>Repeat step 5 for every new question by pressing the up arrow, then enter again, untill all questions have been answered</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <script>
+    function copyToClipboard(text) {
+        var textArea = document.createElement('textarea');
+        textArea.value = text;
+
+        // Append the textarea to the document
+        document.body.appendChild(textArea);
+
+        // Select the text in the textarea
+        textArea.select();
+
+        // Copy the text to the clipboard
+        document.execCommand('copy');
+
+        // Remove the textarea from the document
+        document.body.removeChild(textArea);
+
+    }
+    function copyCode(text) {
+        var textArea = document.createElement('textarea');
+        switch (text) {
+            case "Test":
+                URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Output.json"
+                break;
+        }
+        textArea.value = `
+var getJSON = function(url) {
+    return new Promise(function(resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function() {
+            var status = xhr.status;
+            if (status === 200) {
+                var responseData = xhr.response;
+                console.log(responseData);  // Log the response to the console
+
+                // Check the data structure before resolving the promise
+                if (responseData && responseData.query && responseData.query.count !== undefined) {
+                    resolve(responseData);
+                } else {
+                    reject('Invalid data structure');
+                }
+            } else {
+                reject(status);
+            }
+        };
+
+        xhr.send();
+    });
+};
+
+// Make the API call and handle the promise
+getJSON("${URL}")
+    .then(function(data) {
+        alert('Your query count: ' + data.query.count);
+        // Now you can manipulate the 'data' variable as needed
+    })
+    .catch(function(err) {
+        alert('Something went wrong: ' + err);
+    });
+        `;
+
+        // Append the textarea to the document
+        document.body.appendChild(textArea);
+
+        // Select the text in the textarea
+        textArea.select();
+
+        // Copy the text to the clipboard
+        document.execCommand('copy');
+
+        // Remove the textarea from the document
+        document.body.removeChild(textArea);
+    }
+
+    function copyAnswerGenerator() {
+        var textArea = document.createElement('textarea');
+        textArea.value = `
+// Given input string
+var inputString = document.getElementById("problemPrompt").innerHTML
+
+// Iterate over the answer_key array
+for (var i = 0; i < answer_key.length; i++) {
+    // Check if the input string matches the first element of the sublist
+    if (inputString.includes(answer_key[i][0])) {
+        // Output the second element of the sublist (index + 1)
+        console.log(answer_key[i][1]);
+        break; // Exit the loop since we found a match
+    }
+}
+        `;
+
+        // Append the textarea to the document
+        document.body.appendChild(textArea);
+
+        // Select the text in the textarea
+        textArea.select();
+
+        // Copy the text to the clipboard
+        document.execCommand('copy');
+
+        // Remove the textarea from the document
+        document.body.removeChild(textArea);
+
+    }
+    </script>
+</body>
+</html>
