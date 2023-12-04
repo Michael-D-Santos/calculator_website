@@ -21,6 +21,9 @@
                 <h3>Links for each .JSON:</h3>
             </div>
             <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary align-bottom btn-lg mr-1" onclick="copyCode('RR')">Related Rates (Two Formulas)</button>
+            </div>
+            <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-primary align-bottom btn-lg mr-1" onclick="copyCode('Test')">Test .JSON</button>
             </div>
         </div>
@@ -63,6 +66,9 @@
         switch (text) {
             case "Test":
                 URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Output.json"
+                break;
+            case "RR":
+                URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/RR%20(TF).json"
                 break;
         }
         textArea.value = `
