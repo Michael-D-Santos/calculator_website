@@ -131,8 +131,23 @@ getJSON("${URL}")
     function copyAnswerGenerator() {
         var textArea = document.createElement('textarea');
         textArea.value = `
+
+const htmlString = '<div id="answer_button"></div>';
+
+// Create a new DOMParser
+const parser = new DOMParser();
+
+// Parse the HTML string
+const doc = parser.parseFromString(htmlString, 'text/html');
+
+// Extract the element from the parsed document
+const myDiv = doc.getElementById('answer_button');
+
+// Now, you can append it to the document or do anything else with it
+document.body.appendChild(myDiv);
+
 // Given input string
-var inputString = document.getElementById("problemPrompt").innerHTML
+var inputString = document.getElementById("problemPrompt").textContent
 
 // Iterate over the answer_key array
 for (var i = 0; i < answer_key.length; i++) {
