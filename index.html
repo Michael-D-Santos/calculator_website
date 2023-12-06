@@ -19,15 +19,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Links for each .JSON:</h3>
-            </div>
             <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary align-bottom btn-lg mr-1" onclick="copyCode('RR2')">Related Rates (Two Formulas)</button>
-            </div>
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary align-bottom btn-lg mr-1" onclick="copyCode('RR1')">Related Rates (One Formulas)</button>
-            </div>
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-primary align-bottom btn-lg mr-1" onclick="copyCode('Test')">Test .JSON</button>
+                <button type="button" class="btn btn-primary align-bottom btn-lg mr-1" onclick="copyCode('Test')">Test .JSON (Related Rates - Two Formulas) </button>
             </div>
         </div>
         <div class="modal-content">
@@ -69,12 +62,6 @@
         switch (text) {
             case "Test":
                 URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/RRTFTest.json"
-                break;
-            case "RR2":
-                URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Related%20Rates%20(Two%20Formulas).json"
-                break;
-            case "RR1":
-                URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Related%20Rates%20(One%20Formula).json"
                 break;
         }
         textArea.value = `
