@@ -154,11 +154,11 @@ for (var i = 0; i < answer_key.length; i++) {
     // Check if the input string matches the first element of the sublist
     if (inputString.includes(answer_key[i][0])) {
         // Output the work
-        answer_key.forEach(element => element[1].forEach((element => 
-            myDiv.innerHTML += katex.renderToString(element, {thrownOnError: false}) + '<br>' + '<br>'
-        )))
+        answer_key[i][1].forEach(element => myDiv.innerHTML += katex.renderToString(element, {thrownOnError: false}) + '<br>' + '<br>'
+        )
         break; // Exit the loop since we found a match
     }
+myDiv.style.textAlign = 'center';
 }
         `;
 
