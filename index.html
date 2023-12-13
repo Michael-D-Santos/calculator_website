@@ -121,33 +121,19 @@ getJSON("${URL}")
         var textArea = document.createElement('textarea');
         textArea.value = `
 
-const htmlString = '<div id="answer_button"></div>';
-
-// Create a new DOMParser
-const parser = new DOMParser();
-
-// Parse the HTML string
-const doc = parser.parseFromString(htmlString, 'text/html');
-
-// Extract the element from the parsed document
-const myDiv = doc.getElementById('answer_button');
-
-// Now, you can append it to the document or do anything else with it
-document.body.appendChild(myDiv);
-
+var problem = document.querySelector("#problemPrompt").textContent
+problem += document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\:\\!px-0.col-md-9.col-xs-12 > span > span > span.katex-html").textContent
 // Given input string
-var inputString = document.getElementById("problemPrompt").textContent
+var inputString = problem
 
 // Iterate over the answer_key array
 for (var i = 0; i < answer_key.length; i++) {
     // Check if the input string matches the first element of the sublist
     if (inputString.includes(answer_key[i][0])) {
         // Output the work
-        answer_key[i][1].forEach(element => myDiv.innerHTML += katex.renderToString(element, {thrownOnError: false}) + '<br>' + '<br>'
-        )
+        console.log(answer_key[i][1])
         break; // Exit the loop since we found a match
     }
-myDiv.style.textAlign = 'center';
 }
         `;
 
