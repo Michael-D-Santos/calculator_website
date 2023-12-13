@@ -125,13 +125,15 @@ var problem = document.querySelector("#problemPrompt").textContent
 problem += document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\:\\!px-0.col-md-9.col-xs-12 > span > span > span.katex-html").textContent
 // Given input string
 var inputString = problem
+const regex = /^(.*?)(?:\\|$)/;
+
 
 // Iterate over the answer_key array
 for (var i = 0; i < answer_key.length; i++) {
     // Check if the input string matches the first element of the sublist
     if (inputString.includes(answer_key[i][0])) {
         // Output the work
-        console.log(answer_key[i][1])
+        console.log((answer_key[i][1].match(regex))[1])
         break; // Exit the loop since we found a match
     }
 }
