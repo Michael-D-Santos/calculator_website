@@ -125,7 +125,7 @@ var problem = document.querySelector("#problemPrompt").textContent
 problem += document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\:\\!px-0.col-md-9.col-xs-12 > span > span > span.katex-html").textContent
 // Given input string
 var inputString = problem
-const regex = /^(.*?)(?:\\|$)/;
+const regex = /^(.*?)(?:\||\\|$)/;
 
 
 // Iterate over the answer_key array
