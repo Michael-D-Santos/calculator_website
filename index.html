@@ -121,14 +121,40 @@ getJSON("${URL}")
         var textArea = document.createElement('textarea');
         textArea.value = `
 
-
-
 var problem = document.querySelector("#problemPrompt").textContent
-problem += document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\:\\!px-0.col-md-9.col-xs-12 > span").textContent
+let question = null;
+
+try {
+  // Attempt the first selector
+  problem += document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\:\\!px-0.col-md-9.col-xs-12 > span");
+
+  // Check if the element is not null
+  if (!question) {
+    throw new Error("Element not found");
+  }
+} catch (error) {
+  console.error(error.message);
+
+try {
+    // Attempt the second selector
+    problem += document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\:\\!px-0.col-md-9.col-xs-12 > span");
+
+    // Check if the element is not null
+    if (!question) {
+      throw new Error("Element not found");
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+// Now, the variable 'question' contains the selected element (if any)
+console.log(question);
+
 // Given input string
 var inputString = problem
-const fracRegex = /-?\\frac\{(.*?)\}\{(.*?)\}/;
-const regex = /^(.*?)(?:\||\\|$)/;
+const fracRegex = /-?\frac{(.*?)}{(.*?)}/;
+const regex = /^(.*?)(?:||\|$)/;
 
 
 // Iterate over the answer_key array
