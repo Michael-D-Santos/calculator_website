@@ -121,10 +121,13 @@ getJSON("${URL}")
         var textArea = document.createElement('textarea');
         textArea.value = `
 
+
+
 var problem = document.querySelector("#problemPrompt").textContent
-problem += document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\:\\!px-0.col-md-9.col-xs-12 > span > span > span.katex-html").textContent
+problem += document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\:\\!px-0.col-md-9.col-xs-12 > span").textContent
 // Given input string
 var inputString = problem
+const fracRegex = /-?\\frac\{(.*?)\}\{(.*?)\}/;
 const regex = /^(.*?)(?:\||\\|$)/;
 
 
@@ -133,7 +136,15 @@ for (var i = 0; i < answer_key.length; i++) {
     // Check if the input string matches the first element of the sublist
     if (inputString.includes(answer_key[i][0])) {
         // Output the work
-        console.log((answer_key[i][1].match(regex))[1])
+        const fracResult = answer_key[i][1].match(fracRegex)?.[0];
+        const regexResult = answer_key[i][1].match(regex)?.[1];
+        if (fracResult !== undefined) {
+          console.log(fracResult);
+        }
+        
+        if (regexResult !== undefined) {
+          console.log(regexResult);
+        }
         break; // Exit the loop since we found a match
     }
 }
