@@ -118,7 +118,8 @@ getJSON("${URL}")
     }
 
     function copyAnswerGenerator() {
-        var textArea = `
+        var textArea = document.createElement('textarea'); 
+        textArea.value = `
 
 function tryQueryElement(element) {
   try {
@@ -165,23 +166,17 @@ for (var i = 0; i < answer_key.length; i++) {
 }
         `;
 
-        
-        var scriptElement = document.createElement('script');
-        
-        // Set the code as the inner text of the script element
-        scriptElement.innerText = textArea;
-        
-        // Append the script element to the body
-        document.body.appendChild(scriptElement);
+        // Append the textarea to the document
+        document.body.appendChild(textArea);
 
         // Select the text in the textarea
-        scriptElement.select();
+        textArea.select();
 
         // Copy the text to the clipboard
         document.execCommand('copy');
 
         // Remove the textarea from the document
-        document.body.removeChild(scriptElement);
+        document.body.removeChild(textArea);
 
     }
     </script>
