@@ -139,13 +139,13 @@ function tryQueryElement(element) {
 var problem = document.querySelector("#problemPrompt").textContent
 
 // Attempt the first selector
-problem += tryQueryElement(document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\:\\!px-0.col-md-9.col-xs-12 > span > span > span.katex-html").textContent)
+problem += tryQueryElement(document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\\\:\\\\!px-0.col-md-9.col-xs-12 > span > span > span.katex-html").textContent)
 
 
 // Given input string
 var inputString = problem
-const fracRegex = /(?:\\text{)?-?\\frac{(\d+)}{(\d+)}/;
-const regex = /^[^\\]+/;
+const fracRegex = /(?:\\\\text{)?-?\\\\frac{(\\d+)}{(\\d+)}/;
+const regex = /^[^\\\\]+/;
 
 
 // Iterate over the answer_key array
