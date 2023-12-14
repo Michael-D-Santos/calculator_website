@@ -153,7 +153,7 @@ for (var i = 0; i < answer_key.length; i++) {
     // Check if the input string matches the first element of the sublist
     if (inputString.includes(answer_key[i][0])) {
         // Output the work
-        const fracResult = answer_key[i][1].match(fracRegex)?.[1];
+        const fracResult = answer_key[i][1].match(fracRegex)?.[0];
         const regexResult = answer_key[i][1].match(regex)?.[0];
         if (fracResult !== undefined) {
           console.log(fracResult);
