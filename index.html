@@ -156,11 +156,10 @@ for (var i = 0; i < answer_key.length; i++) {
         const regexResult = answer_key[i][1].match(regex)?.[0];
         if (fracResult !== undefined) {
           console.log(fracResult);
-        }
-        
-        if (regexResult !== undefined) {
+        } else {
           console.log(regexResult);
         }
+        
         break; // Exit the loop since we found a match
     }
 }
