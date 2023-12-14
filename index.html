@@ -145,7 +145,7 @@ problem += tryQueryElement(document.querySelector("#question_page > div > div.lo
 // Given input string
 var inputString = problem
 const fracRegex = /-?�rac{(.*?)}{(.*?)}/;
-const regex = /^(.*?)(?:\|\\|$)/;
+const regex = /^[^\\]+/;
 
 
 // Iterate over the answer_key array
