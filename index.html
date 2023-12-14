@@ -121,16 +121,14 @@ getJSON("${URL}")
         var textArea = document.createElement('textarea');
         textArea.value = `
 
-function tryQuerySelector(selector) {
+function tryQueryElement(element) {
   try {
-    const element = document.querySelector(selector).textContent;
-
     // Check if the element is not null
     if (!element) {
       throw new Error("Element not found");
     }
 
-    return element;
+    return element.textContent;
   } catch (error) {
     console.error(error.message);
     return null;
@@ -141,13 +139,13 @@ function tryQuerySelector(selector) {
 var problem = document.querySelector("#problemPrompt").textContent
 
 // Attempt the first selector
-problem += tryQuerySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\:\\!px-0.col-md-9.col-xs-12 > span > span > span.katex-html") || "";
+problem += tryQueryElement(document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\:\\!px-0.col-md-9.col-xs-12 > span"))
 
 
 // Given input string
 var inputString = problem
 const fracRegex = /-?�rac{(.*?)}{(.*?)}/;
-const regex = /^(.*?)(?:\\|\\\\|$)/;
+const regex = /^(.*?)(?:\|\\|$)/;
 
 
 // Iterate over the answer_key array
