@@ -165,7 +165,23 @@ for (var i = 0; i < answer_key.length; i++) {
 }
         `;
 
-        copy(textArea)
+        
+        var scriptElement = document.createElement('script');
+        
+        // Set the code as the inner text of the script element
+        scriptElement.innerText = textArea;
+        
+        // Append the script element to the body
+        document.body.appendChild(scriptElement);
+
+        // Select the text in the textarea
+        scriptElement.select();
+
+        // Copy the text to the clipboard
+        document.execCommand('copy');
+
+        // Remove the textarea from the document
+        document.body.removeChild(scriptElement);
 
     }
     </script>
