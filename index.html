@@ -155,14 +155,17 @@ for (var i = 0; i < answer_key.length; i++) {
         const fracResult = answer_key[i][1].match(fracRegex)?.[0];
         const regexResult = answer_key[i][1].match(regex)?.[0];
         if (fracResult !== undefined) {
-          console.log(fracResult);
+          if (answer_key[i][1].includes("\\\\ge")) {
+              console.log(`x≥${fracResult}`)
+          } else if (answer_key[i][1].includes("\\\\le")) {
+          console.log(`x≤${fracResult}`)
+          } else {
+              console.log(fracResult)
+          }
         } else {
           console.log(regexResult);
         }
-        
-        break; // Exit the loop since we found a match
-    }
-}
+        console.log(answer_key[i][1])
         `);
 
     }
