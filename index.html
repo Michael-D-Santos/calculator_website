@@ -118,8 +118,8 @@ getJSON("${URL}")
     }
 
     function copyAnswerGenerator() {
-        var textArea = document.createElement('textarea'); 
-        textArea.value = `
+
+        copyToClipboard(`
 
 function tryQueryElement(element) {
   try {
@@ -139,12 +139,12 @@ function tryQueryElement(element) {
 var problem = document.querySelector("#problemPrompt").textContent
 
 // Attempt the first selector
-problem += tryQueryElement(document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\:mt-0 > div.resize-katex.jax.max-sm\\:\\!px-0.col-md-9.col-xs-12 > span > span > span.katex-html").textContent)
+problem += tryQueryElement(document.querySelector("#question_page > div > div.logic-row.line-type.row.hasJax.mt-9.first\\\\:mt-0 > div.resize-katex.jax.max-sm\\\\:\\\\!px-0.col-md-9.col-xs-12 > span > span > span.katex-html").textContent)
 
 // Given input string
 var inputString = problem
-const fracRegex = /(?:\\text{)?-?\\frac{(\d+)}{(\d+)}/;
-const regex = /^[^\\]+/;
+const fracRegex = /(?:\\\\text{)?-?\\\\frac{(\\d+)}{(\\d+)}/;
+const regex = /^[^\\\\]+/;
 
 
 // Iterate over the answer_key array
@@ -164,19 +164,7 @@ for (var i = 0; i < answer_key.length; i++) {
         break; // Exit the loop since we found a match
     }
 }
-        `;
-
-        // Append the textarea to the document
-        document.body.appendChild(textArea);
-
-        // Select the text in the textarea
-        textArea.select();
-
-        // Copy the text to the clipboard
-        document.execCommand('copy');
-
-        // Remove the textarea from the document
-        document.body.removeChild(textArea);
+        `);
 
     }
     </script>
