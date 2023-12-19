@@ -22,6 +22,7 @@
             </div>
             <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-primary align-bottom btn-lg mr-1" onclick="copyCode('Test')">Analyzing First Derivative Algebraically</button>
+                <button type="button" class="btn btn-primary align-bottom btn-lg mr-1" onclick="copyCode('Inferences')">All Possible Inferences from Graph of f or f'</button>
             </div>
         </div>
         <div class="modal-content">
@@ -63,6 +64,9 @@
         switch (text) {
             case "Test":
                 URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Analyzing%20First%20Derivative%20Algebraically.json"
+                break;
+            case "Inferences":
+                URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/pain.json"
                 break;
         }
         textArea.value = `
@@ -118,6 +122,9 @@ getJSON("${URL}")
         switch (text) {
             case "Test":
                 window.open("https://pastebin.com/raw/BT2Uwqbn");
+                break;
+            case "Inferences":
+                window.open("https://pastebin.com/raw/eiZ4LtYs")
                 break;
         }
     }
