@@ -92,8 +92,8 @@ var getJSON = function(url) {
                 var responseData = xhr.response;
                 console.log(responseData);  // Log the response to the console
 
-                // Check the data structure before resolving the promise
-                if (responseData && responseData.query && responseData.query.count !== undefined) {
+                // Check if responseData is an object
+                if (responseData && typeof responseData === 'object') {
                     resolve(responseData);
                 } else {
                     reject('Invalid data structure');
@@ -107,15 +107,22 @@ var getJSON = function(url) {
     });
 };
 
-// Make the API call and handle the promise
+// Make the API call and store the data in a variable
+var apiData;
+
 getJSON("${URL}")
     .then(function(data) {
-        alert('Your query count: ' + data.query.count);
-        // Now you can manipulate the 'data' variable as needed
+        // Store the data in the variable
+        apiData = data;
+        console.log(
+
+        // Now you can manipulate the 'apiData' variable as needed
+        alert('API call successful');
     })
     .catch(function(err) {
         alert('Something went wrong: ' + err);
     });
+
         `;
 
         // Append the textarea to the document
