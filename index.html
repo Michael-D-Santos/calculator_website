@@ -21,6 +21,9 @@
                 <h3>Links for each .JSON/Colab:</h3>
             </div>
             <div class="d-flex justify-content-center">
+                <button type="button" class="btn btn-primary align-bottom btn-lg mr-1" onclick="copyCode('DGraph2')">Analyzing the Derivative Graph (Level 2)</button>
+            </div>
+            <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-primary align-bottom btn-lg mr-1" onclick="window.open('https://colab.research.google.com/drive/1QrjAWfWGCwXTvLH_J4Cf4gyXivS4w01e?usp=sharing', '_blank');">Determine Absolute Min or Max Algebraically</button>
             </div>
             <div class="d-flex justify-content-center">
@@ -72,6 +75,9 @@
                 break;
             case "Inferences":
                 URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/All%20Possible%20Inferences%20from%20Graph%20of%20f%20or%20f'.json"
+                break;
+            case "DGraph2":
+                URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Analyzing%20the%20Derivative%20Graph%20(Level%202).json"
                 break;
         }
         textArea.value = `
@@ -129,7 +135,10 @@ getJSON("${URL}")
                 window.open("https://pastebin.com/raw/BT2Uwqbn");
                 break;
             case "Inferences":
-                window.open("https://pastebin.com/raw/eiZ4LtYs")
+                window.open("https://pastebin.com/raw/eiZ4LtYs");
+                break;
+            case "DGraph2":
+                window.open("https://pastebin.com/raw/6EshNZWg");
                 break;
         }
     }
