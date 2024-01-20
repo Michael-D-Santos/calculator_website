@@ -18,7 +18,7 @@
                 <input id="my-drawer" type="checkbox" class="drawer-toggle" />
                 <div class="drawer-content">
                   <!-- Page content here -->
-                  <label for="my-drawer" class="btn btn-primary drawer-button">View Links</label>
+                  <label for="my-drawer" class="btn btn-primary drawer-button" id="links">View Links</label>
                 </div> 
                 <div class="drawer-side">
                   <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
@@ -46,7 +46,7 @@
     </div>
     <div class="hero min-h-screen">
     <div id="grid">
-        <div class="col-span-3 text-center h-40 text-5xl font-bold" id="guide">DIRECTIONS</div>
+        <div class="col-span-3 text-center text-5xl font-bold" id="guide">DIRECTIONS</div>
         <div class="card w-96 bg-base-100 shadow-xl">
             <div class="card-body">
               <h2 class="card-title">Step 1</h2>
@@ -86,9 +86,11 @@
     </div>
     </div>
     <script>
+        const links = document.getElementById("links")
         const signifier = document.getElementById("signifier")
         const guide = document.getElementById("guide")
         signifier.onclick = function(){guide.scrollIntoView({behavior: "smooth"})}
+        var clicked = false
 
         function copyToClipboard(text) {
         var textArea = document.createElement('textarea');
@@ -190,22 +192,36 @@ getJSON("${URL}")
         }
     }
 
-    function handleWindowSize() {
+    function handleSizes() {
       var gridElement = document.getElementById('grid');
 
       if (window.innerWidth >= 768) { // 768px is the medium screen size threshold, adjust as needed
         console.log(window.innerWidth)
         gridElement.classList.add('grid', 'grid-cols-3', 'gap-4');
+        guide.classList.add('h-40')
       } else {
         gridElement.classList.remove('grid-cols-3', 'gap-4');
+        guide.style.paddingTop = '50px';
+        guide.style.paddingBottom = '50px';
       }
+
+
     }
 
     // Initial call to set the classes based on the initial window size
-    handleWindowSize();
+    handleSizes();
 
     // Add event listener for window resize
-    window.addEventListener('resize', handleWindowSize);
+    window.addEventListener('resize', handleSizes);
+
+    links.addEventListener('click', function(){clicked=true})
+
+    signifier.addEventListener('click', function(){
+      if (clicked === true) {
+        links.click()
+        clicked = false
+      }
+    })
     </script>
 </body>
 </html>
