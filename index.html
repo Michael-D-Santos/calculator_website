@@ -24,6 +24,7 @@
                   <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
                   <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                     <!-- Sidebar content here -->
+                    <li onclick="copyCode('Integral Area')"><a>Find Integral from Given Areas (with Properties)</a></li>
                     <li onclick="window.open('https://colab.research.google.com/drive/1cFdF_ZrIFGa7v7ikAiyJTRYva4Dkg7b2?usp=sharing', '_blank');"><a>Antidifferentiate Radicals</a></li>
                     <li onclick="window.open('https://colab.research.google.com/drive/1VpoYoZuCVAU-Ol9Ev5eLwQggxYR-shHC?usp=sharing', '_blank');"><a>Determining Concavity</a></li>
                     <li onclick="copyCode('DGraph2')"><a>Analyzing the Derivative Graph (Level 2)</a></li>
@@ -122,6 +123,9 @@
             case "DGraph2":
                 URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Analyzing%20the%20Derivative%20Graph%20(Level%202).json"
                 break;
+            case "Integral Area":
+                URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Find%20Integral%20from%20Given%20Areas%20(with%20Properties).json"
+                break;
         }
         textArea.value = `
 var getJSON = function(url) {
@@ -185,6 +189,9 @@ getJSON("${URL}")
                 window.open("https://pastebin.com/raw/BT2Uwqbn");
                 break;
             case "Inferences":
+                window.open("https://pastebin.com/raw/eiZ4LtYs");
+                break;
+            case "Integral Area":
                 window.open("https://pastebin.com/raw/eiZ4LtYs");
                 break;
             case "DGraph2":
