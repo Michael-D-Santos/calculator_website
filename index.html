@@ -24,6 +24,7 @@
                   <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
                   <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                     <!-- Sidebar content here -->
+                    <li onclick="copyCode('Integral Properties')"><a>Integral Properties</a></li>
                     <li onclick="copyCode('Integral Area')"><a>Find Integral from Given Areas (with Properties)</a></li>
                     <li onclick="window.open('https://colab.research.google.com/drive/1cFdF_ZrIFGa7v7ikAiyJTRYva4Dkg7b2?usp=sharing', '_blank');"><a>Antidifferentiate Radicals</a></li>
                     <li onclick="window.open('https://colab.research.google.com/drive/1VpoYoZuCVAU-Ol9Ev5eLwQggxYR-shHC?usp=sharing', '_blank');"><a>Determining Concavity</a></li>
@@ -126,6 +127,9 @@
             case "Integral Area":
                 URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Find%20Integral%20from%20Given%20Areas%20(with%20Properties).json"
                 break;
+            case "Integral Properties":
+                URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Integral%20Properties.json"
+                break;
         }
         textArea.value = `
 var getJSON = function(url) {
@@ -192,6 +196,9 @@ getJSON("${URL}")
                 window.open("https://pastebin.com/raw/eiZ4LtYs");
                 break;
             case "Integral Area":
+                window.open("https://pastebin.com/raw/eiZ4LtYs");
+                break;
+            case "Integral Properties":
                 window.open("https://pastebin.com/raw/eiZ4LtYs");
                 break;
             case "DGraph2":
