@@ -24,6 +24,7 @@
                   <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
                   <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                     <!-- Sidebar content here -->
+                    <li onclick="copyCode('Definite Integrals')"><a>Definite Integrals with Substitution (Type 2)</a></li>
                     <li onclick="copyCode('Integral Properties')"><a>Integral Properties</a></li>
                     <li onclick="copyCode('Integral Area')"><a>Find Integral from Given Areas (with Properties)</a></li>
                     <li onclick="window.open('https://colab.research.google.com/drive/1cFdF_ZrIFGa7v7ikAiyJTRYva4Dkg7b2?usp=sharing', '_blank');"><a>Antidifferentiate Radicals</a></li>
@@ -130,6 +131,9 @@
             case "Integral Properties":
                 URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Integral%20Properties.json"
                 break;
+            case "Definite Integrals":
+                URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Definite%20Integrals%20with%20Substitution%20(Type%202).json"
+                break;
         }
         textArea.value = `
 var getJSON = function(url) {
@@ -203,6 +207,9 @@ getJSON("${URL}")
                 break;
             case "DGraph2":
                 window.open("https://pastebin.com/raw/6EshNZWg");
+                break;
+            case "Definite Integrals":
+                window.open("https://pastebin.com/raw/wVm25MBY");
                 break;
         }
     }
