@@ -24,6 +24,7 @@
                   <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
                   <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                     <!-- Sidebar content here -->
+                    <li onclick="copyCode('IMV')"><a>Intermediate Value Theorem</a></li>
                     <li onclick="copyCode('Definite Integrals')"><a>Definite Integrals with Substitution (Type 2)</a></li>
                     <li onclick="copyCode('Integral Properties')"><a>Integral Properties</a></li>
                     <li onclick="copyCode('Integral Area')"><a>Find Integral from Given Areas (with Properties)</a></li>
@@ -134,6 +135,9 @@
             case "Definite Integrals":
                 URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Definite%20Integrals%20with%20Substitution%20(Type%202).json"
                 break;
+            case "IMV":
+                URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Intermediate%20Value%20Theorem.json"
+                break;
         }
         textArea.value = `
 var getJSON = function(url) {
@@ -210,6 +214,9 @@ getJSON("${URL}")
                 break;
             case "Definite Integrals":
                 window.open("https://pastebin.com/raw/wVm25MBY");
+                break;
+            case "IMV":
+                window.open("https://pastebin.com/raw/eiZ4LtYs");
                 break;
         }
     }
