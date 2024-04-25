@@ -24,6 +24,7 @@
                   <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
                   <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                     <!-- Sidebar content here -->
+                    <li onclick="copyCode('MVT')"><a>Inferences from Tables (MVT)</a></li>
                     <li onclick="copyCode('IMV')"><a>Intermediate Value Theorem</a></li>
                     <li onclick="copyCode('Definite Integrals')"><a>Definite Integrals with Substitution (Type 2)</a></li>
                     <li onclick="copyCode('Integral Properties')"><a>Integral Properties</a></li>
@@ -138,6 +139,9 @@
             case "IMV":
                 URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/Intermediate%20Value%20Theorem.json"
                 break;
+            case "MVT":
+                URL = "https://raw.githubusercontent.com/Michael-D-Santos/calculator_jsons/main/MVT.json"
+                break;
         }
         textArea.value = `
 var getJSON = function(url) {
@@ -216,6 +220,9 @@ getJSON("${URL}")
                 window.open("https://pastebin.com/raw/wVm25MBY");
                 break;
             case "IMV":
+                window.open("https://pastebin.com/raw/eiZ4LtYs");
+                break;
+            case "MVT":
                 window.open("https://pastebin.com/raw/eiZ4LtYs");
                 break;
         }
